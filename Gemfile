@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
@@ -36,6 +36,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  
+  gem 'sqlite3'
+  gem 'pry'
+  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -46,3 +50,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
