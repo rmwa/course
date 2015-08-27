@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="center">Recipe details for</h1>
+  <h2 class="center"><%= @recipe.name %></h2>
+  <hr/>
+  
+  <div class="row">
+    <div class="col-xs-12 col-md-4 pull-right center">
+        <%= gravatar_for @recipe.chef, size: 200 %>
+        <p>
+          <h5>brought to you by: <%= @recipe.chef.chefname %></h5>
+        </p>
+    </div>
+    <div class="col-xs-12 col-md-8">
+          <h3><%= @recipe.summary %></h3>
+          <div class="well">
+            <p><strong>Steps to do:</strong></p>
+              <%= @recipe.description %>
+          </div>
+          <p><span class="quite"><small>Added <%= time_ago_in_words(@recipe.created_at) %> ago</small></span></p>
+    </div>
+  </div>
+  
+  <h5><%= link_to "Return to Recipe List", recipes_path, class: "btn btn-warning btn-small" %></h5>
+</div>

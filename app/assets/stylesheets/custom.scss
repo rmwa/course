@@ -17,3 +17,27 @@ footer {
   color: #efefef;
   min-height: 200px;
 }
+
+.chef_info {
+  margin-top: 10px;
+}
+
+.gravatar {
+  border-radius: 10px; 
+}
+
+.jumbotron {
+  background-image: url("jumbotron-1000x288.jpg");
+  background-size: cover;
+}
+
+.white {
+  color: #fff;
+  h1 {
+      color: #fff;
+  }
+}
+
+.navbar {
+    margin-bottom:0;
+}
