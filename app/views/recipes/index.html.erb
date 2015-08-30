@@ -10,10 +10,13 @@
           <h5>Chef name: <%= r.chef.chefname %></h5>
         </section>
       </div>
-      <div class="col-xs-12 col-md-8 well">
+      <div class="col-xs-12 col-md-6 well">
             <h4> <%= link_to r.name, recipe_path(r) %></h4>
             <p> <%= r.summary %></p>
             <p><span class="quite"><small><%= time_ago_in_words(r.created_at) %> ago</small></span></p>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= image_tag(r.picture.url, size: "250x125", class: "gravatar") if r.picture? %>
       </div>
     </div>
   <% end %>
