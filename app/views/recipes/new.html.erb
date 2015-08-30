@@ -1,2 +1,33 @@
-<h1>Recipe#new</h1>
-<p>Find me in app/views/recipe/new.html.erb</p>
+<div class="container">
+  <h1 class="center">Create a new recipe</h1>
+  <hr/>
+
+  <% if @recipe.errors.any? %>
+    <div class="row">
+      <div class="alert alert-danger col-xs-12 col-md-8 col-md-offset-2">
+        <h5>Please correct the following errors:</h5>
+        <ul>
+          <% @recipe.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 well">
+      <%= form_for @recipe do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :summary %>
+        <%= f.text_field :summary %>
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 10 %>
+        <%= f.submit "Create recipe", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
