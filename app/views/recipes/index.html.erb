@@ -2,6 +2,8 @@
   <h1 class="center">List of all recipes</h1>
   <hr/>
   
+  <%= will_paginate %>
+  
   <% @recipes.each do |r| %>
     <div class="row">
       <div class="col-xs-12 col-md-2">
@@ -13,11 +15,22 @@
       <div class="col-xs-12 col-md-6 well">
             <h4> <%= link_to r.name, recipe_path(r) %></h4>
             <p> <%= r.summary %></p>
-            <p><span class="quite"><small><%= time_ago_in_words(r.created_at) %> ago</small></span></p>
+            <p><span class="quite"><small>Created <%= time_ago_in_words(r.created_at) %> ago. Updated <%= time_ago_in_words(r.updated_at) %> ago.</small></span></p>
+            <div class="pull-right">
+              <%= link_to like_recipe_path(r, like: true), method: :post do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+              <% end %>&nbsp<%= r.thumps_up_total %>&nbsp&nbsp&nbsp&nbsp
+              <%= link_to like_recipe_path(r, like: false), method: :post do %>
+                <i class="glyphicon glyphicon-thumbs-down"></i>
+              <% end %>&nbsp<%= r.thumps_down_total %>
+            </div>            
       </div>
       <div class="col-xs-12 col-md-4">
         <%= image_tag(r.picture.url, size: "250x125", class: "gravatar") if r.picture? %>
       </div>
     </div>
   <% end %>
+  
+  <%= will_paginate %>
+  
 </div>
