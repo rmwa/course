@@ -2,7 +2,7 @@
   <div class="container">
     <div class="white"><h1>myRecipes</h1></div>
     <p class="white">Your way to a great cooking experience.</p>
-    <p><%= link_to "Sign in", "", role: "button", class: "btn btn-primary btn-lg" %></p>
+    <p><%= link_to "Register now", register_path, role: "button", class: "btn btn-primary btn-lg" %></p>
   </div>
 </div>
 
@@ -10,9 +10,9 @@
   <div class="row">
     <div class="col-xs-12 col-md-4">
       <div class="thumbnail center">
-        <%= image_tag("browse_recipes-640x480.jpg", size: "160x120", alt: "Edit Entry") %>
+        <%= image_tag("browse_recipes-640x480.jpg", size: "160x120", alt: "Recipes") %>
         <div class="caption">
-          <h3>Simply browse</h3>
+          <h3>Browse Recipes</h3>
           <p>See recipes provided by our registerd chefs. Dive into a new food experience.</p>
           <p><%= link_to "Go", recipes_path, role: "button", class: "btn btn-primary" %></p>
         </div>
@@ -20,12 +20,12 @@
     </div>
   
     <div class="col-xs-12 col-md-4">
-      <div class="thumbnail">
-        <img src="..." alt="...">
+      <div class="thumbnail center">
+        <%= image_tag("chefs-640x480.png", size: "160x120", alt: "Chefs") %>
         <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <h3>All Chefs</h3>
+          <p>Browse all our registered chefs and get directly to their recipes.</p>
+          <p><%= link_to "Go", chefs_path, role: "button", class: "btn btn-primary" %></p>
         </div>
       </div>
     </div>

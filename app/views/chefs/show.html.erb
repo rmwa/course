@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="center">Chef information for</h1>
+  <h2 class="center"><%= @chef.chefname %></h2>
+  <hr/>
+  
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4 center">
+        <%= gravatar_for @chef, size: 200 %>
+        <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4 center">
+        <h3>Recipes</h3>
+        <%= will_paginate @recipes %>
+    </div>
+  </div>
+  <% @recipes.each do |r| %>
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 well">
+          <h4> <%= link_to r.name, recipe_path(r) %></h4>
+          <p> <%= r.summary %></p>
+          <p><span class="quite"><small>Created <%= time_ago_in_words(r.created_at) %> ago. Updated <%= time_ago_in_words(r.updated_at) %> ago.</small></span></p>
+          <div class="pull-right">
+            <%= link_to like_recipe_path(r, like: true), method: :post do %>
+              <i class="glyphicon glyphicon-thumbs-up"></i>
+            <% end %>&nbsp<%= r.thumps_up_total %>&nbsp&nbsp&nbsp&nbsp
+            <%= link_to like_recipe_path(r, like: false), method: :post do %>
+              <i class="glyphicon glyphicon-thumbs-down"></i>
+            <% end %>&nbsp<%= r.thumps_down_total %>
+          </div>            
+    </div>
+  </div>
+  <% end %>
+</div>
+
