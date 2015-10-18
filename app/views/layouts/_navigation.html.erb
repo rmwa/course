@@ -18,18 +18,24 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Link1", "#" %></li>
             <li><%= link_to "Link2", "#" %></li>
-            <li><%= link_to "New recipe", new_recipe_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to "New recipe", new_recipe_path %></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.chefname %><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Action1", "#" %></li>
-                <li><%= link_to "Action2", "#" %></li>
-                <li><%= link_to "Action3", "#" %></li>
+                <li><%= link_to "Profile", chef_path(current_user) %></li>
+                <li><%= link_to "Settings", edit_chef_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to "Seperated aciton", "#" %></li>
+                <li><%= link_to "Logout", logout_path %></li>
               </ul>
             </li>
-            <li><div><%= link_to "Sign in", "", class: "btn btn-default navbar-btn" %></div></li>
+            <% else %>            
+            <li>
+              <div>
+                  <%= link_to "Login", login_path, class: "btn btn-default navbar-btn" %>
+              </div>
+            </li>
+            <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

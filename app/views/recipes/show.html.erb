@@ -31,5 +31,10 @@
     </div>
   </div>
   
-  <h5><%= link_to "Return to Recipe List", recipes_path, class: "btn btn-warning btn-small" %> <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-default btn-small" %></h5>
+  <h5>
+    <%= link_to "Return to Recipe List", recipes_path, class: "btn btn-warning btn-small" %>
+    <% if logged_in? and @recipe.chef == current_user %>
+      <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-default btn-small" %>
+    <% end %>
+  </h5>
 </div>
