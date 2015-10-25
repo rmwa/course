@@ -16,8 +16,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Link1", "#" %></li>
-            <li><%= link_to "Link2", "#" %></li>
+            <li><%= link_to "Recipes", recipes_path %></li>
+            <li><%= link_to "Chefs", chefs_path %></li>
             <% if logged_in? %>
               <li><%= link_to "New recipe", new_recipe_path %></li>
             <li class="dropdown">

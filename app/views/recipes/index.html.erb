@@ -2,6 +2,11 @@
   <h1 class="center">List of all recipes</h1>
   <hr/>
   
+  <ul class="nav nav-tabs">
+    <li class="active"><%= link_to "Recipes", recipes_path %></li>
+    <li><%= link_to "Chefs", chefs_path %></li>
+  </ul>  
+  
   <%= will_paginate %>
   
   <% @recipes.each do |r| %>
